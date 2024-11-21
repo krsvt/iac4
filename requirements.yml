@@ -1,0 +1,3 @@
+- src: https://gitlab.com/ansible-roles4162343/ansible-openvpn.git
+  scm: git
+  name: openvpn

@@ -4,3 +4,5 @@
   become: true
   roles:
     - openvpn
+  vars:
+    ovpn_dest: "/home/svt/dev/itmo/iac/iac4/client.ovpn"
