@@ -6,13 +6,13 @@
 Сама роль: https://gitlab.com/ansible-roles4162343/ansible-openvpn
 
 ## Использование
-```
+```shell
 ansible-playbook playbooks/playbook.yaml -i inventory.ini
 ```
-```
+```shell
 vagrant ssh srv1 
 ```
-```
+```shell
 vagrant@srv1:~$ systemctl status openvpn-server@server.service
 ● openvpn-server@server.service - OpenVPN service for server
      Loaded: loaded (/lib/systemd/system/openvpn-server@.service; enabled; vendor preset: enabled)
@@ -28,7 +28,7 @@ vagrant@srv1:~$ systemctl status openvpn-server@server.service
      CGroup: /system.slice/system-openvpn\x2dserver.slice/openvpn-server@server.service
              └─3671 /usr/sbin/openvpn --status /run/openvpn-server/status-server.log --status-version 2 --suppress-time>
 ```
-```
+```shell
 *[master][~/dev/itmo/iac/iac4]$ openvpn --config client.ovpn/srv1/root/client.ovpn 
 2024-11-21 22:15:42 Note: --cipher is not set. OpenVPN versions before 2.5 defaulted to BF-CBC as fallback when cipher negotiation failed in this case. If you need this fallback please add '--data-ciphers-fallback BF-CBC' to your configuration and/or add BF-CBC to --data-ciphers.
 2024-11-21 22:15:42 Note: Kernel support for ovpn-dco missing, disabling data channel offload.
@@ -42,7 +42,7 @@ vagrant@srv1:~$ systemctl status openvpn-server@server.service
 ```
 
 ## Тестирование роли openvpn с помощью molecule
-```
+```shell
 [~/dev/itmo/infra/iac/lab4/extensions]$ molecule test
 WARNING  Driver vagrant does not provide a schema.
 INFO     default scenario test matrix: dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
