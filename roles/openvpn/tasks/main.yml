@@ -1,0 +1,30 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for openvpn
+- name: Download sources
+  get_url:
+    url: "{{ openvpn_script_url }}"
+    dest: "{{ openvpn_script_dest }}"
+
+- name: Check if openvpn installed already
+  become: true
+  stat:
+    path: "{{ ovpn_path }}"
+  register: openvpn_installed
+
+- name: Install openvpn
+  become: true
+  shell: 'echo "{{ host_ip }} {{ public_ip }} {{ protocol }} {{ openvpn_port }} {{ dns_srv }} {{ client_name }}" | bash {{ openvpn_script_dest }}'
+  when: openvpn_installed.stat.exists == False
+
+- name: Start openvpn
+  become: true
+  service:
+    name: openvpn
+    state: started
+
+- name: Copy ovpn file to playbook directory
+  become: true
+  fetch:
+    src: "{{ ovpn_path }}"
+    dest: "{{ ovpn_dest }}"

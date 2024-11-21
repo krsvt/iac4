@@ -1,0 +1,6 @@
+---
+- name: Setup OpenVPN Server and Generate Client Configuration
+  hosts: openvpn
+  become: true
+  roles:
+    - openvpn

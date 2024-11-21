@@ -1,0 +1,13 @@
+#SPDX-License-Identifier: MIT-0
+# defaults file for openvpn
+---
+openvpn_script_url: "https://git.io/vpn"
+openvpn_script_dest: "/home/vagrant/openvpn-install.sh"
+ovpn_path: "/root/{{ client_name }}.ovpn"
+host_ip: 1 # 10.0.2.15
+public_ip: 5.34.212.87
+protocol: 1 # udp
+openvpn_port: 1194
+dns_srv: 1 # Current system resolvers
+client_name: client
+ovpn_dest: "/home/svt/dev/itmo/infra/iac4/client.ovpn"
